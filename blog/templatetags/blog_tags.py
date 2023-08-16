@@ -22,9 +22,5 @@ def get_most_commented_posts(count=5):
     ).order_by('-total_comments')[:count]
 
 
-@register.simple_tag
-def get_most_commented_posts(count=5):
-    return Post.published.annotate(
-        total_comments=Count('comments')
-    ).order_by('-total_comments')[:count]
+
     
